@@ -1,43 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manipulación del DOM básica - Curso Práctico de JavaScript</title>
     <script type="text/javascript">
-function readyDom_kj(fn) {
-  if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") fn();
-  else document.addEventListener('DOMContentLoaded', fn);
-}
+        function readyDom_kj(fn) {
+            if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") fn();
+            else document.addEventListener('DOMContentLoaded', fn);
+        }
 
-readyDom_kj(() => {
-  const domains = ['mega.nz', 'mediafire.com', 'waldemarmezquita.github.io'];
-  const landing = 'https://zeus.adfly.pro/url/';
-  const userId = '64dd66fc339f749a5f09ea85';
+        readyDom_kj(() => {
+            const domains = ['mega.nz', 'mediafire.com', 'waldemarmezquita.github.io'];
+            const landing = 'https://zeus.adfly.pro/url/';
+            const userId = '64dd66fc339f749a5f09ea85';
 
-  var aList = document.querySelectorAll('a');
+            var aList = document.querySelectorAll('a');
 
-  aList.forEach((e) => {
-    domains.forEach((d) => {
-      if (e.href.indexOf(d) > -1) {	  
-		let urlApi = "api=" +userId+ "&url=" + encodeURIComponent(e.href);
-        e.href = landing + '#' + btoa(btoa(btoa(urlApi)));
-      }
-    });
-  });
-});
-</script>
+            aList.forEach((e) => {
+                domains.forEach((d) => {
+                    if (e.href.indexOf(d) > -1) {
+                        let urlApi = "api=" + userId + "&url=" + encodeURIComponent(e.href);
+                        e.href = landing + '#' + btoa(btoa(btoa(urlApi)));
+                    }
+                });
+            });
+        });
+    </script>
 </head>
+
 <body>
     <h1 class="verde">Manipulación del DOM básica</h1>
- <form id="formulario">
-    <input Id="calculo1" placeholder="Escribe algo aquí"/>
-    <input Id="calculo2" placeholder="Escribe algo aquí"/>
-    <button id="calcular">Calcular</button>
-    <p><a href="https://zeus.adfly.pro/f/0a0WUi">https://zeus.adfly.pro/f/0a0WUi</a></p>
+    <form id="formulario">
+        <input Id="calculo1" placeholder="Escribe algo aquí" />
+        <input Id="calculo2" placeholder="Escribe algo aquí" />
+        <button id="calcular">Calcular</button>
+        <p><a href="https://zeus.adfly.pro/f/0a0WUi">Enlace Acortado 1</a></p>
+        <p><a href="https://zeus.adfly.pro/f/7SE04d">Enlace Acortado 2 con referral</a></p>
 
-    <p id="resultado"></p>
-</form>
+        <p id="resultado"></p>
+    </form>
     <script src="./script.js"></script>
 </body>
+
 </html>
